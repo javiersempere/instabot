@@ -30,6 +30,8 @@ for user_id in mis_seguidos:
 lista1 = list(set(lista) - skipped.set - followed.set - unfollowed.set)#
 random.shuffle(lista1)
 
+print("La lista tiene: ", len(lista1), " usuarios") 
+
 # print ("longitud de lista", len(lista))
 # print ("longitud de lista1", len(lista1))
 
@@ -43,27 +45,4 @@ while n < 30:
     if bot.follow(usuario):
         print ("usuario ",usuario, "seguido")
         n += 1
-        bot.like_user(usuario, amount=2)
-
-# print (lista)
-# followers = self.get_user_followers(user_id, nfollows)
-#     followers = list(set(followers) - set(self.blacklist))
-
-#bot.like_followers("sempere.javier", nlikes=2)
-#bot.like_following("sempere.javier", nlikes=2)
-
-# your_following = bot.following
-# already_whitelisted = bot.read_list_from_file("whitelist.txt")
-# rest_users = list(set(your_following) - set(already_whitelisted))
-# random.shuffle(rest_users)
-# with open("whitelist.txt", "a") as f:
-#     for user_id in rest_users:
-#         user_info = bot.get_user_info(user_id)
-#         print(user_info["username"])
-#         print(user_info["full_name"])
-#
-#         input_line = sys.stdin.readline().lower()
-#         if "y" in input_line.lower():
-#             f.write(str(user_id) + "\n")
-#             print("ADDED.\r")
-#
+        # bot.like_user(usuario, amount=2, filtration=False)
