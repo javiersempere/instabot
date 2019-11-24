@@ -28,11 +28,11 @@ print("followers: ", len(list(seguidores)))
 seguidos = bot.get_user_following(usuario)
 print("following: ", len(list(seguidos)))
 
-for user_id in seguidores:
-     user_info = bot.get_user_info(user_id)
-     print(user_info["username"])
-     print(user_info["full_name"])
-     bot.like_user(user_id, amount=2, filtration=False)
+# for user_id in seguidores:
+#      user_info = bot.get_user_info(user_id)
+#      print(user_info["username"])
+#      print(user_info["full_name"])
+#      bot.like_user(user_id, amount=2, filtration=False)
 
 for user_id in seguidos:
       user_info = bot.get_user_info(user_id)

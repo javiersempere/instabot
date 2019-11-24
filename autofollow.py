@@ -1,4 +1,4 @@
-# hace like y follow a la gente a la que mi whitelist hace follow
+# hace follow a la gente a la que mi whitelist hace follow
 
 import random
 import os
@@ -30,7 +30,7 @@ for user_id in mis_seguidos:
 lista1 = list(set(lista) - skipped.set - followed.set - unfollowed.set)#
 random.shuffle(lista1)
 
-print("La lista tiene: ", len(lista1), " usuarios") 
+print("La lista tiene: ", len(lista1), " usuarios")
 
 # print ("longitud de lista", len(lista))
 # print ("longitud de lista1", len(lista1))
