@@ -22,7 +22,7 @@ unfollowed = bot.unfollowed_file
 
 # añade los seguidos de mis seguidos en la lista
 for user_id in mis_seguidos:
-    Seguidos2 = bot.get_user_followers(user_id, 15)
+    Seguidos2 = bot.get_user_followers(user_id, 25)
     seguidos2 = list(Seguidos2)
     lista.extend(seguidos2)
 

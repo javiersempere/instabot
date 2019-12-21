@@ -1,41 +1,27 @@
 # Hace like en lista de seguidores y seguidos
 
 import argparse
-import os
 import sys
-
-sys.path.append(os.path.join(sys.path[0], "../"))
-from instabot import Bot  # noqa: E402
+import random
+from instabot import Bot
 
 bot = Bot()
 bot.login()
 
-# bot.like_followers("sempere.javier", nlikes=2)
-# bot.like_following("sempere.javier", nlikes=2)
-
-# bot.like_followers(bot.username, nlikes=2)
-# bot.like_following(bot.username, nlikes=2)
-
 usuario = bot.username
 print("Vamos a hacer like a los amigos de", usuario)
 
-# print("followers: ", len(list(bot.get_user_followers(usuario))))
-# print("following: ", len(list(bot.get_user_following(usuario))))
-
-seguidores = bot.get_user_followers(usuario)
-print("followers: ", len(list(seguidores)))
-
 seguidos = bot.get_user_following(usuario)
-print("following: ", len(list(seguidos)))
+seguidores = bot.get_user_followers(usuario)
+seguidores1 = set(seguidores) - set(seguidos)
 
-# for user_id in seguidores:
-#      user_info = bot.get_user_info(user_id)
-#      print(user_info["username"])
-#      print(user_info["full_name"])
-#      bot.like_user(user_id, amount=2, filtration=False)
+lista = list(seguidos)
+lista.extend(list(seguidores1))
+random.shuffle(lista)
 
-for user_id in seguidos:
+print("total: ", len(lista))
+
+for user_id in lista:
       user_info = bot.get_user_info(user_id)
-      print(user_info["username"])
-      print(user_info["full_name"])
+      print(user_info["username"],"-",user_info["full_name"])
       bot.like_user(user_id, amount=2, filtration=False)
